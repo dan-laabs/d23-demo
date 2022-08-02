@@ -1,13 +1,22 @@
-import type { NextPage } from 'next'
+import Head from "next/head"
+import type { ReactElement } from "react"
+import React from "react"
+import Layout from "../components/layout"
+import type { NextPageWithLayout } from "./_app"
 
-const Home: NextPage = () => {
+const Page: NextPageWithLayout = () => {
+  return <p>hello world</p>
+}
+
+Page.getLayout = function getLayout(page: ReactElement) {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
+    <>
+      <Head>
+        <title>D23 Expo 2022: The Ultimate Disney Fan Event; Presented by Visa</title>
+      </Head>
+      <Layout>{page}</Layout>
+    </>
   )
 }
 
-export default Home
+export default Page
